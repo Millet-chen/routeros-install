@@ -1,7 +1,0 @@
-/ip pool add name="sstp-vpn-pool" ranges=172.20.252.1-172.20.252.254
-/ppp profile add name="sstp-vpn-profile" use-encryption=yes local-address=172.20.0.1 dns-server=223.5.5.5,8.8.8.8 remote-address=sstp-vpn-pool
-/ppp secret add name=ppp1 profile=sstp-vpn-profile password=1 service=sstp
-/interface sstp-server server set enabled=yes default-profile=sstp-vpn-profile
-/ip firewall filter add chain=input protocol=tcp dst-port=443 action=accept comment="Allow SSTP"
-/ip firewall nat add chain=srcnat action=masquerade
-/user set admin password=xiaomi
